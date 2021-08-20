@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+{% block title %}MGRS Blog App | Post Detail Page{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: blue;
+   text-align: center;
+   font-weight: bolder;
+}
+</style>
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-8 offset-md-2">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        Do you want to delete post?
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a class="btn btn-secondary btn-sm" href="{% url 'blog-post-detail' post.id %}">Cancel</a>
+                        <input class="btn btn-primary btn-sm" type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>Developed by: Mark Gene Santos, 950th CEISG PAF</p>
+  </div>
+{% endblock %}
